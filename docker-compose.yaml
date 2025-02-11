@@ -1,5 +1,5 @@
 services:
-  node-express-template:
+  youve-got-mail:
     build: .
-    image: node-express-template
-    container_name: node-express-template
+    image: youve-got-mail
+    container_name: youve-got-mail
