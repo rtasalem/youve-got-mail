@@ -1,0 +1,12 @@
+services:
+  node-express-template:
+    build:
+      context: .
+      target: development
+    image: node-express-template-development
+    container_name: node-express-template-development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/home/node/app
+      - ./package.json:/home/node/package.json
