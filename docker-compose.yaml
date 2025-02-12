@@ -3,3 +3,13 @@ services:
     build: .
     image: youve-got-mail
     container_name: youve-got-mail
+  youve-got-mail-mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    restart: always
+    volumes: 
+      - mongodb-data:/data
+
+volumes:
+  mongodb-data:
