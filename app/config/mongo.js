@@ -16,7 +16,7 @@ const mongo = convict({
     default: 'youve-got-mail',
     env: 'MONGO_DATABASE_NAME'
   },
-  emailCollection: {
+  emailsCollection: {
     doc: 'Name of MongoDB collection containing emails data.',
     format: 'String',
     default: 'emails',

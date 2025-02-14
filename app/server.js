@@ -1,7 +1,7 @@
 import express from 'express'
 import { serverConfig } from './config/index.js'
 import { health } from './routes/index.js'
-import handleDatabaseConnection from './mongo/connect.js'
+import initMongo from './mongo/init.js'
 
 const server = async () => {
   const app = express()
@@ -9,7 +9,7 @@ const server = async () => {
 
   app.use(health)
 
-  await handleDatabaseConnection()
+  await initMongo()
 
   app.listen(port, () => {
     console.log(`Application listening on http://localhost:${port}`)

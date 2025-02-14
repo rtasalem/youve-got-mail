@@ -1,4 +1,4 @@
-import emailsCollection from './emails'
+import emailsCollection from './emails.js'
 
 export {
   emailsCollection
