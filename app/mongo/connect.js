@@ -1,9 +1,9 @@
 import { mongoClient } from '../clients/index.js'
 import { mongoConfig } from '../config/index.js'
 
-let db
-
 const handleDatabaseConnection = async () => {
+  let db
+
   try {
     if (!db) {
       await mongoClient.connect()
