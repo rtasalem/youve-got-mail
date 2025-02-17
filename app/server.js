@@ -11,7 +11,7 @@ const server = async () => {
   app.use(health)
 
   await initMongo()
-  await sendToQueue()
+  await sendToQueue('hello', 'hello world')
 
   app.listen(port, () => {
     console.log(`Application listening on http://localhost:${port}`)

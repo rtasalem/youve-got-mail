@@ -1,8 +1,8 @@
-import amqp from 'amqplib/callback_api'
+import amqp from 'amqplib'
 
 const sendToQueue = (queue, msg) => {
   return new Promise((resolve, reject) => {
-    amqp.connect('amqp://localhost', (error0, connection) => {
+    amqp.connect('amqp://youve-got-mail-rabbitmq', (error0, connection) => {
       if (error0) {
         return reject(error0)
       }
