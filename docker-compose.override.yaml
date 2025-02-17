@@ -1,10 +1,10 @@
 services:
-  node-express-template:
+  youve-got-mail:
     build:
       context: .
       target: development
-    image: node-express-template-development
-    container_name: node-express-template-development
+    image: youve-got-mail-development
+    container_name: youve-got-mail-development
     ports:
       - "3000:3000"
     volumes:

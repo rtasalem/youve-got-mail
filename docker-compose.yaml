@@ -1,5 +1,15 @@
 services:
-  node-express-template:
+  youve-got-mail:
     build: .
-    image: node-express-template
-    container_name: node-express-template
+    image: youve-got-mail
+    container_name: youve-got-mail
+  youve-got-mail-mongodb:
+    image: mongo:latest
+    ports:
+      - "27000:27017"
+    restart: always
+    volumes: 
+      - mongodb-data:/data
+
+volumes:
+  mongodb-data:
