@@ -11,5 +11,8 @@ services:
     volumes: 
       - mongodb-data:/data
 
+  youve-got-mail-rabbitmq:
+    image: rabbitmq:latest
+
 volumes:
   mongodb-data:
