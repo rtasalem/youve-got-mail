@@ -1,13 +1,19 @@
-import { emailsCollection } from './collections/index.js'
+import { mongoClient } from '../clients/index.js'
+import { mongoConfig } from '../config/index.js'
 
-const initMongo = async () => {
+const initialiseDatabaseConnection = async () => {
+  let db
+
   try {
-    const collections = {}
-    collections.emails = await emailsCollection()
-    return collections
+    if (!db) {
+      await mongoClient.connect()
+      console.log('Connection to MongoDB server successful.')
+      db = mongoClient.db(mongoConfig.get('databaseName'))
+    }
+    return db
   } catch (error) {
-    throw new Error(`Failed to create collections: ${error.message}`)
+    throw new Error('No database found:', error)
   }
 }
 
-export default initMongo
+export default initialiseDatabaseConnection

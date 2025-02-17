@@ -16,12 +16,21 @@ const mongo = convict({
     default: 'youve-got-mail',
     env: 'MONGO_DATABASE_NAME'
   },
-  emailsCollection: {
-    doc: 'Name of MongoDB collection containing emails data.',
-    format: 'String',
-    default: 'emails',
-    env: 'MONGO_EMAIL_COLLECTIONS'
+  collections: {
+    emails: {
+      doc: 'Name of MongoDB collection containing emails data.',
+      format: 'String',
+      default: 'emails',
+      env: 'MONGO_EMAIL_COLLECTION'
+    },
+    sms: {
+      doc: 'Name of MongoDB collection containing SMS data.',
+      format: 'String',
+      default: 'sms',
+      env: 'MONGO_SMS_COLLECTION'
+    }
   }
+
 })
 
 mongo.validate({ allowed: 'strict' })

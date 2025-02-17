@@ -1,9 +1,9 @@
 import { mongoConfig } from '../../config/index.js'
-import handleDatabaseConnection from '../connect.js'
+import initialiseDatabaseConnection from '../init.js'
 
 const emailsCollection = async () => {
-  const db = await handleDatabaseConnection()
-  return db.collection(mongoConfig.get('emailsCollection'))
+  const db = await initialiseDatabaseConnection()
+  return db.collection(mongoConfig.get('collections.emails'))
 }
 
 export default emailsCollection
