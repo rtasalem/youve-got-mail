@@ -1,6 +1,6 @@
 import { emailsCollection } from './collections/index.js'
 
-const initMongo = async () => {
+const initialiseMongoDB = async () => {
   try {
     const collections = {}
     collections.emails = await emailsCollection()
@@ -10,4 +10,4 @@ const initMongo = async () => {
   }
 }
 
-export default initMongo
+export default initialiseMongoDB

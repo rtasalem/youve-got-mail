@@ -1,7 +1,7 @@
 import { mongoClient } from '../clients/index.js'
 import { mongoConfig } from '../config/index.js'
 
-const handleDatabaseConnection = async () => {
+const databaseConnection = async () => {
   let db
 
   try {
@@ -16,4 +16,4 @@ const handleDatabaseConnection = async () => {
   }
 }
 
-export default handleDatabaseConnection
+export default databaseConnection

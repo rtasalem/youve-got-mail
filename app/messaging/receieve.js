@@ -1,15 +1,16 @@
 import amqp from 'amqplib'
+import { messageConfig } from '../config/index.js'
 
 const receiveMessage = async () => {
-  const connection = await amqp.connect('amqp://localhost')
+  const connection = await amqp.connect(messageConfig.get('connectionString'))
   const channel = await connection.createChannel()
-  const queue = 'hello'
+  const queue = messageConfig.get('queues.emails')
 
   await channel.assertQueue(queue, { durable: false })
-  console.log(' [*] Waiting for messages...')
+  console.log('Listening for messages...')
 
-  channel.consume(queue, (msg) => {
-    console.log(` [x] Received ${msg.content.toString()}`)
+  channel.consume(queue, (message) => {
+    console.log(`Received ${message.content.toString()}`)
   }, { noAck: true })
 }
 
