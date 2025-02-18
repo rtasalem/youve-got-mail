@@ -11,9 +11,13 @@ services:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
     environment:
-      MESSAGE_DEFAULT_USER: guest
-      MESSAGE_DEFAULT_PASSWORD: password
-      MESSAGE_CONNECTON_STRING: 
+      MESSAGE_DEFAULT_USER: ${MESSAGE_DEFAULT_USER:-guest}
+      MESSAGE_DEFAULT_PASSWORD: ${MESSAGE_DEFAULT_PASSWORD:-guest}
+      MESSAGE_CONNECTON_STRING: ${MESSAGE_CONNECTON_STRING:-amqp://youve-got-mail-rabbitmq}
+      MESSAGE_QUEUE_EMAILS: ${MESSAGE_QUEUE_EMAILS:-emails}
+      MONGO_CLIENT_URL: ${MONGO_CLIENT_URL:-mongodb://youve-got-mail-mongodb:27017}
+      MONGO_DATABASE_NAME: ${MONGO_DATABASE_NAME:-youve-got-mail}
+      MONGO_COLLECTION_EMAILS: ${MONGO_COLLECTION_EMAILS:-emails}
 
   youve-got-mail-mongodb:
     image: mongo:latest
@@ -22,7 +26,7 @@ services:
     restart: always
     volumes: 
       - mongodb-data:/data
-      
+
   youve-got-mail-rabbitmq:
     image: rabbitmq:3-management
     ports: 
