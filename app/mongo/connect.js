@@ -12,7 +12,7 @@ const databaseConnection = async () => {
     }
     return db
   } catch (error) {
-    throw new Error('No database found:', error)
+    throw new Error(`No database found:, ${error}`)
   }
 }
 
