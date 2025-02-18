@@ -3,7 +3,7 @@ import convictFormatWithValidator from 'convict-format-with-validator'
 
 convict.addFormats(convictFormatWithValidator)
 
-const mongo = convict({
+const config = convict({
   url: {
     doc: 'MongoDB client URL.',
     format: 'String',
@@ -24,6 +24,6 @@ const mongo = convict({
   }
 })
 
-mongo.validate({ allowed: 'strict' })
+config.validate({ allowed: 'strict' })
 
-export default mongo
+export default config
