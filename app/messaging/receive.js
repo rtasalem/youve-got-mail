@@ -7,11 +7,11 @@ const receiveMessage = async () => {
   const queue = messageConfig.get('queues.emails')
 
   await channel.assertQueue(queue, { durable: false })
-  console.log('Listening for messages...')
+  console.log('Listening to queue: emails...')
 
   channel.consume(queue, (message) => {
-    console.log(`Received ${message.content.toString()}`)
-  }, { noAck: true })
+    console.log(`Received new message: ${message.content}`)
+  })
 }
 
 export default receiveMessage
