@@ -9,13 +9,13 @@ const config = convict({
       doc: 'Default guest user for RabbitMQ.',
       format: 'String',
       default: 'guest',
-      env: 'RABBITMQ_DEFAULT_USER'
+      env: 'MESSAGE_DEFAULT_USER'
     },
     password: {
       doc: 'Password associated with default guest user for RabbitMQ.',
       format: 'String',
       default: 'guest',
-      env: 'RABBITMQ_DEFAULT_PASSWORD'
+      env: 'MESSAGE_DEFAULT_PASSWORD'
     }
   }
 })

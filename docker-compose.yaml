@@ -11,8 +11,8 @@ services:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASSWORD: password
+      MESSAGE_DEFAULT_USER: guest
+      MESSAGE_DEFAULT_PASSWORD: password
 
   youve-got-mail-mongodb:
     image: mongo:latest
