@@ -1,5 +1,8 @@
 services:
   youve-got-mail:
+    depends_on:
+      - youve-got-mail-mongodb
+      - youve-got-mail-rabbitmq
     build: 
       context: .
       target: development

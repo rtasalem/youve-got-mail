@@ -10,7 +10,7 @@ const receiveMessage = async () => {
   console.log('Listening to queue: emails...')
 
   channel.consume(queue, (message) => {
-    console.log(`Received new message: ${message.content}`)
+    console.log(`Received new message: ${message.content.toString()}`)
   })
 }
 
