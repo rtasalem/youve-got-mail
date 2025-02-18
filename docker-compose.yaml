@@ -13,6 +13,7 @@ services:
     environment:
       MESSAGE_DEFAULT_USER: guest
       MESSAGE_DEFAULT_PASSWORD: password
+      MESSAGE_CONNECTON_STRING: 
 
   youve-got-mail-mongodb:
     image: mongo:latest

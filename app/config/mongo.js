@@ -20,7 +20,7 @@ const config = convict({
     doc: 'Name of MongoDB collection containing emails data.',
     format: 'String',
     default: 'emails',
-    env: 'MONGO_EMAIL_COLLECTIONS'
+    env: 'MONGO_COLLECTION_EMAILS'
   }
 })
 
