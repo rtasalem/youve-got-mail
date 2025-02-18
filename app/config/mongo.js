@@ -3,7 +3,7 @@ import convictFormatWithValidator from 'convict-format-with-validator'
 
 convict.addFormats(convictFormatWithValidator)
 
-const mongo = convict({
+const config = convict({
   url: {
     doc: 'MongoDB client URL.',
     format: 'String',
@@ -20,10 +20,10 @@ const mongo = convict({
     doc: 'Name of MongoDB collection containing emails data.',
     format: 'String',
     default: 'emails',
-    env: 'MONGO_EMAIL_COLLECTIONS'
+    env: 'MONGO_COLLECTION_EMAILS'
   }
 })
 
-mongo.validate({ allowed: 'strict' })
+config.validate({ allowed: 'strict' })
 
-export default mongo
+export default config

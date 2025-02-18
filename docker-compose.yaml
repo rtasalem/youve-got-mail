@@ -1,15 +1,41 @@
 services:
   youve-got-mail:
-    build: .
+    build: 
+      context: .
+      target: development
     image: youve-got-mail
     container_name: youve-got-mail
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/home/node/app
+      - ./package.json:/home/node/package.json
+    environment:
+      MESSAGE_DEFAULT_USER: ${MESSAGE_DEFAULT_USER:-guest}
+      MESSAGE_DEFAULT_PASSWORD: ${MESSAGE_DEFAULT_PASSWORD:-guest}
+      MESSAGE_CONNECTON_STRING: ${MESSAGE_CONNECTON_STRING:-amqp://youve-got-mail-rabbitmq}
+      MESSAGE_QUEUE_EMAILS: ${MESSAGE_QUEUE_EMAILS:-emails}
+      MONGO_CLIENT_URL: ${MONGO_CLIENT_URL:-mongodb://youve-got-mail-mongodb:27017}
+      MONGO_DATABASE_NAME: ${MONGO_DATABASE_NAME:-youve-got-mail}
+      MONGO_COLLECTION_EMAILS: ${MONGO_COLLECTION_EMAILS:-emails}
+
   youve-got-mail-mongodb:
     image: mongo:latest
     ports:
-      - "27000:27017"
+      - "27017:27017"
     restart: always
     volumes: 
       - mongodb-data:/data
 
+  youve-got-mail-rabbitmq:
+    image: rabbitmq:3-management
+    ports: 
+      - "5672:5672"
+      - "15672:15672"
+    restart: always
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
 volumes:
   mongodb-data:
+  rabbitmq-data:

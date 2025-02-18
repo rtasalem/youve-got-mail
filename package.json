@@ -1,6 +1,6 @@
 {
   "name": "youve-got-mail",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Template for a Node.js microservice utilising an Express.js server.",
   "main": "app/index.js",
   "type": "module",
@@ -11,6 +11,7 @@
   "contributors": [],
   "license": "MIT",
   "dependencies": {
+    "amqplib": "0.10.5",
     "convict": "6.2.4",
     "convict-format-with-validator": "6.2.0",
     "express": "4.21.2",

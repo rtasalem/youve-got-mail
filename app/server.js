@@ -1,7 +1,8 @@
 import express from 'express'
 import { serverConfig } from './config/index.js'
 import { health } from './routes/index.js'
-import initMongo from './mongo/init.js'
+import initialiseMongo from './mongo/init.js'
+import receiveMessage from './messaging/receive.js'
 
 const server = async () => {
   const app = express()
@@ -9,7 +10,8 @@ const server = async () => {
 
   app.use(health)
 
-  await initMongo()
+  await initialiseMongo()
+  await receiveMessage()
 
   app.listen(port, () => {
     console.log(`Application listening on http://localhost:${port}`)

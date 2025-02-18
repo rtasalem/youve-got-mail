@@ -1,7 +1,7 @@
 import { mongoClient } from '../clients/index.js'
 import { mongoConfig } from '../config/index.js'
 
-const handleDatabaseConnection = async () => {
+const databaseConnection = async () => {
   let db
 
   try {
@@ -12,8 +12,8 @@ const handleDatabaseConnection = async () => {
     }
     return db
   } catch (error) {
-    throw new Error('No database found:', error)
+    throw new Error(`No database found:, ${error}`)
   }
 }
 
-export default handleDatabaseConnection
+export default databaseConnection

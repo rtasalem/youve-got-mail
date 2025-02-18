@@ -1,8 +1,8 @@
 import { mongoConfig } from '../../config/index.js'
-import handleDatabaseConnection from '../connect.js'
+import databaseConnection from '../connect.js'
 
 const emailsCollection = async () => {
-  const db = await handleDatabaseConnection()
+  const db = await databaseConnection()
   return db.collection(mongoConfig.get('emailsCollection'))
 }
 
