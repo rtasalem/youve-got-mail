@@ -7,8 +7,6 @@ const receiveMessage = async () => {
   const queue = messageConfig.get('queues.emails')
 
   channel.assertQueue(queue, { durable: false })
-  console.log(`Listening to queue: ${queue}`)
-
   channel.consume(queue, (message) => {
     console.log(`Received new message: ${message.content.toString()}`)
   })
