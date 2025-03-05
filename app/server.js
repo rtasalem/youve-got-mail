@@ -15,6 +15,7 @@ const server = async () => {
 
   app.listen(port, () => {
     console.log(`Application listening on http://localhost:${port}`)
+    console.info('RabbitMQ Management can be accessed at http://localhost:15672')
   })
 }
 

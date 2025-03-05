@@ -21,6 +21,11 @@ services:
       MONGO_CLIENT_URL: ${MONGO_CLIENT_URL:-mongodb://youve-got-mail-mongodb:27017}
       MONGO_DATABASE_NAME: ${MONGO_DATABASE_NAME:-youve-got-mail}
       MONGO_COLLECTION_EMAILS: ${MONGO_COLLECTION_EMAILS:-emails}
+      NODEMAILER_HOST: ${NODEMAILER_HOST:-smtp.ethereal.email}
+      NODEMAILER_PORT: ${NODEMAILER_PORT:-587}
+      NODEMAILER_PORT_SECURE: ${NODEMAILER_PORT_SECURE:-false}
+      NODEMAILER_AUTH_USER: ${NODEMAILER_AUTH_USER:-test@ethereal.com}
+      NODEMAILER_AUTH_PASSWORD: ${NODEMAILER_AUTH_PASSWORD:-password}
 
   youve-got-mail-mongodb:
     image: mongo:latest
