@@ -24,4 +24,6 @@ const config = convict({
   }
 })
 
+config.validate({ allowed: 'strict' })
+
 export default config
